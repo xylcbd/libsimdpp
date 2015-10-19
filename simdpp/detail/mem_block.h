@@ -34,9 +34,9 @@ public:
 
     mem_block() = default;
     mem_block(const mem_block&) = default;
-    mem_block(V v) { std::memcpy(d_, &v, sizeof(v)); }
+    mem_block(const V& v) { std::memcpy(d_, &v, sizeof(v)); }
 
-    mem_block& operator=(V v) { std::memcpy(d_, &v, sizeof(v)); return *this; }
+    mem_block& operator=(const V& v) { std::memcpy(d_, &v, sizeof(v)); return *this; }
 
     operator V() const { V r; std::memcpy(&r, d_, sizeof(r)); return r; }
 
@@ -46,8 +46,8 @@ public:
     element_type* operator&() const { return d_; }
 private:
     union {
-        element_type d_[length];
-        V align_;
+		element_type d_[length];
+		V align_;
     };
 };
 

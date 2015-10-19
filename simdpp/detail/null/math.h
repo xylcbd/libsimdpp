@@ -128,7 +128,7 @@ V mul(const V& a, const V& b)
 }
 
 template<class V> SIMDPP_INL
-V fmadd(const V& a, const V& b, V c)
+V fmadd(const V& a, const V& b,const V& c)
 {
     V r;
     for (unsigned i = 0; i < V::length; i++) {
@@ -138,7 +138,7 @@ V fmadd(const V& a, const V& b, V c)
 }
 
 template<class V> SIMDPP_INL
-V fmsub(const V& a, const V& b, V c)
+V fmsub(const V& a, const V& b,const V& c)
 {
     V r;
     for (unsigned i = 0; i < V::length; i++) {

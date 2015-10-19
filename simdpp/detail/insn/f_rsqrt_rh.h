@@ -27,15 +27,15 @@ namespace detail {
 namespace insn {
 
 template<class V> SIMDPP_INL
-V v_rsqrt_rh(V x, V a)
+V v_rsqrt_rh(const V& x,const V& a)
 {
     V x2, r;
 
     x2 = mul(x, x);
     r = mul(a, x2);
     r = sub(3.0, r);
-    x = mul(x, 0.5);
-    r = mul(x, r);
+    const auto tmp_x = mul(x, 0.5);
+    r = mul(tmp_x, r);
 
     return r;
 }

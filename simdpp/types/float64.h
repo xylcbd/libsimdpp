@@ -91,7 +91,7 @@ private:
         rN = v0
         @endcode
     */
-    static float64<N> set_vec(float64v v0)
+    static float64<N> set_vec(const float64v& v0)
     {
         float64<N> r;
         for (unsigned i = 0; i < r.vec_length; i++) r.vec(i) = v0;

@@ -74,7 +74,7 @@ public:
 private:
     /// Creates a signed int8 vector with the contents set to copy of native
     /// register
-    static int8<N> set_vec(int8v a)
+    static int8<N> set_vec(const int8v& a)
     {
         int8<N> r;
         for (auto& v : r.d_) {
@@ -135,7 +135,7 @@ public:
 private:
     /// Creates a unsigned int8 vector with the contents set to copy of native
     /// register
-    static uint8<N> set_vec(uint8v a)
+    static uint8<N> set_vec(const uint8v& a)
     {
         uint8<N> r;
         for (auto& v : r.d_) {

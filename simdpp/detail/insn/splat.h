@@ -24,8 +24,8 @@ namespace SIMDPP_ARCH_NAMESPACE {
 namespace detail {
 namespace insn {
 
-template<unsigned s, class V> SIMDPP_INL
-V v_splat(V a);
+// template<unsigned s, class V> SIMDPP_INL
+// V v_splat(V a);
 
 // -----------------------------------------------------------------------------
 
@@ -241,17 +241,18 @@ float64<N> i_splat(const float64<N>& a)
 
 // collect some duplicate stuff here
 template<unsigned s, class V> SIMDPP_INL
-V v_splat(V a)
+V v_splat(const V& a)
 {
     using U = typename V::base_vector_type;
     U one = a.vec(s / U::length);
 
     one = i_splat<s % U::length>(one);
 
+	auto tmp_a = a;
     for (unsigned i = 0; i < V::vec_length; ++i) {
-        a.vec(i) = one;
+		tmp_a.vec(i) = one;
     }
-    return a;
+    return tmp_a;
 }
 
 } // namespace insn
